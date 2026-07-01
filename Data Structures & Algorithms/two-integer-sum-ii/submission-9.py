@@ -1,0 +1,25 @@
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        # Its the complement trick again
+
+        #Same as before but its SORTED now so need to correct from N^2
+        #for i, num in enumerate(numbers):
+        #    if (target-num in numbers):
+        #        return [i+1, numbers.index(target-num)+1]
+        #return False
+
+        #Using pointers
+        l = 0
+        r = len(numbers)-1
+
+        while l < r:
+            s = numbers[l] + numbers[r]
+            if target == s:
+                return [l+1, r+1]
+            elif s < target:
+                l+=1
+            else:
+                r-=1
+        return []
+
+                
